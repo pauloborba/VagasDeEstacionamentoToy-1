@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20170405183454) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "reservas", force: :cascade do |t|
     t.datetime "entrada"
     t.datetime "saida"
     t.integer  "vaga_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["vaga_id"], name: "index_reservas_on_vaga_id"
+    t.index ["vaga_id"], name: "index_reservas_on_vaga_id", using: :btree
   end
 
   create_table "vagas", force: :cascade do |t|
@@ -28,4 +31,5 @@ ActiveRecord::Schema.define(version: 20170405183454) do
     t.datetime "updated_at",                 null: false
   end
 
+  add_foreign_key "reservas", "vagas"
 end
