@@ -1,12 +1,7 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+# Sistema de vagas de estacionamento
 
 * Ruby version
-  - 2.4.0
+  - > 2.2.x
 * System dependencies
   - rails 5.0.x
 
