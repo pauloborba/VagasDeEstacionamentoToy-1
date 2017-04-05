@@ -1,0 +1,24 @@
+<h1>Cadastrar nova vaga</h1>
+
+<%= form_for(@vaga) do |f| %>
+  <% if @vaga.errors.any? %>
+    <div id="error_explanation">
+      <h2>Errors:</h2>
+
+      <ul>
+      <% @vaga.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %>
+    <%= f.text_field :descricao %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Criar' %>
+  </div>
+<% end %>
