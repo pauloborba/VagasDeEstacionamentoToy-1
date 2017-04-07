@@ -25,6 +25,10 @@ class VagasController < ApplicationController
   def create
     @vaga = Vaga.new(vaga_params)
 
+    if @vaga.ocupada
+      @vaga.reservas.build(entrada: Time.now)
+    end
+
     if @vaga.save
       redirect_to @vaga, notice: 'Vaga foi salva com sucesso'
     else
