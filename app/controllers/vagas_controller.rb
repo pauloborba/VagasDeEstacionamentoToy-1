@@ -34,7 +34,7 @@ class VagasController < ApplicationController
 
   def update
     @vaga = Vaga.find(params[:id])
-    
+
     if @vaga.update(vaga_params)
       redirect_to @vaga, notice: 'Vaga foi atualizada com sucesso'
     else
@@ -42,9 +42,13 @@ class VagasController < ApplicationController
     end
   end
 
+  def overview
+    @vagas = Vaga.all
+  end
+
   private
 
   def vaga_params
-    params.require(:vaga).permit(:descricao)
+    params.require(:vaga).permit(:descricao, :ocupada)
   end
 end

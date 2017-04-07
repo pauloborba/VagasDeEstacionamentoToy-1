@@ -5,20 +5,13 @@
   <thead>
     <tr>
       <th>Descrição</th>
-      <th>Status</th>
-      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @vagas.each do |vaga| %>
-      <tr style='background-color:<%= vaga.ocupada ? 'red' : 'green'%>'>
-        <td><%= vaga.descricao %></td>
-        <td><%= vaga.ocupada ? 'ocupada' : 'livre' %></td>
-        <td><%= link_to (vaga.ocupada ? 'Desocupar' : 'Reservar'), vaga_reservar_path(vaga), method: :post %></td>
-        <td><%= link_to 'Visualizar', vaga %></td>
-        <td><%= link_to 'Editar', edit_vaga_path(vaga) %></td>
-        <td><%= link_to 'Deletar', vaga, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+      <tr>
+        <td><%= link_to vaga.descricao, vaga %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +19,5 @@
 
 <br>
 
-<%= link_to 'Cadastrar nova vaga', new_vaga_path %>
+<%= link_to 'Cadastrar nova vaga', new_vaga_path %> |
+<%= link_to 'Overview', overview_path %>
