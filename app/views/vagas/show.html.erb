@@ -2,6 +2,10 @@
 <p>
   <b>Descrição:</b> <%= @vaga.descricao %>
 </p>
+<p>
+  <b>Ocupada:</b> <%= @vaga.ocupada ? 'Sim' : 'Não' %>
+</p>
 
 <%= link_to 'Editar', edit_vaga_path(@vaga) %> |
-<%= link_to 'Lista', vagas_path %>
+<td><%= link_to 'Deletar', @vaga, method: :delete, data: { confirm: 'Tem certeza?' } %></td> |
+<%= link_to 'Lista de vagas', vagas_path %>
