@@ -1,6 +1,6 @@
 class VagasController < ApplicationController
   def index
-    @vagas = Vaga.all
+    @vagas = Vaga.all.order(:id)
   end
 
   def show
@@ -47,7 +47,7 @@ class VagasController < ApplicationController
   end
 
   def overview
-    @vagas = Vaga.all
+    @vagas = Vaga.all.order(:id)
   end
 
   private
