@@ -6,6 +6,22 @@
   <b>Ocupada:</b> <%= @vaga.ocupada ? 'Sim' : 'Não' %>
 </p>
 
+<h4> Historico: </h4>
+<table>
+  <tr>
+    <th>Entrada</th>
+    <th>Saida</th>
+  </tr>
+  <% @vaga.reservas.each do |reserva| %>
+    <tr>
+      <td><%= reserva.entrada.strftime('%d/%m/%Y %H:%M:%S') %></td>
+      <td><%= reserva.saida ? reserva.saida.strftime('%d/%m/%Y %H:%M:%S') : 'Vaga ainda está ocupada' %></td>
+    </tr>
+  <% end %>
+</table>
+
+</br>
+
 <%= link_to 'Editar', edit_vaga_path(@vaga) %> |
 <td><%= link_to 'Deletar', @vaga, method: :delete, data: { confirm: 'Tem certeza?' } %></td> |
 <%= link_to 'Lista de vagas', vagas_path %>
