@@ -1,5 +1,5 @@
 class Vaga < ApplicationRecord
-  has_many :reservas
+  has_many :reservas, dependent: :destroy
 
   validates :descricao, presence: true;
 
