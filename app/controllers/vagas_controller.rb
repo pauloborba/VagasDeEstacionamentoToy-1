@@ -50,6 +50,20 @@ class VagasController < ApplicationController
     @vagas = Vaga.all
   end
 
+  def reservar
+    vagas = Vaga.where(ocupada: false)
+    notice = ""
+    if(vagas.empty?)
+      notice = 'Vaga indisponivel'
+    else
+      vaga = vagas.first
+      vaga.reservar_ou_desocupar
+      notice = 'Vaga reservada'
+    end
+
+    redirect_to overview_url, notice: notice
+  end
+
   private
 
   def vaga_params

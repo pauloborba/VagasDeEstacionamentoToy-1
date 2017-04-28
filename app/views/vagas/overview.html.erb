@@ -12,8 +12,7 @@
   <tbody>
     <% @vagas.each do |vaga| %>
       <tr>
-        <td style="background-color:<%=vaga.ocupada ? 'red' : 'green'%>"><%= vaga.descricao %></td>
-        <td><%= link_to (vaga.ocupada ? 'Desocupar' : 'Reservar'), vaga_reservar_path(vaga), method: :post %></td>
+        <td class="<%=vaga.ocupada ? 'red' : 'green'%>"><%=link_to vaga.descricao, vaga_reservar_path(vaga), method: :post %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +21,5 @@
 <br>
 
 <%= link_to 'Cadastrar nova vaga', new_vaga_path %> |
-<%= link_to 'Listagem de vagas', vagas_path %>
+<%= link_to 'Listagem de vagas', vagas_path %> |
+<%= link_to 'reservar', reservar_path, method: :post %>
